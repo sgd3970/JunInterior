@@ -1,0 +1,92 @@
+#mainNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+    height: 76px;
+    display: flex;
+    align-items: center;
+}
+
+#mainNav .navbar-brand {
+    font-weight: 700;
+    color: #fff;
+    padding: 0;
+    font-size: 1.5rem;
+}
+
+#mainNav .navbar-nav {
+    align-items: center;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: #fff;
+}
+
+#mainNav.navbar-scrolled {
+    background-color: #93724f !important;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+#mainNav.navbar-scrolled .navbar-brand {
+    color: #fff;
+}
+
+#mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+    color: #fff;
+}
+
+#mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
+    color: #f4623a;
+}
+
+.navbar-toggler {
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-scrolled .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* 모바일 반응형 스타일 */
+@media (max-width: 991.98px) {
+    #mainNav {
+        padding: 0.5rem;
+    }
+
+    #mainNav .navbar-nav {
+        padding: 1rem 0;
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+
+    #mainNav .navbar-nav .nav-item .nav-link {
+        color: #212529;
+        padding: 0.75rem 1rem;
+    }
+
+    #mainNav.navbar-scrolled .navbar-nav {
+        background-color: #fff;
+    }
+} 

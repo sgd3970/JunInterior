@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Jun Interior - 찾아오시는 길</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700&display=swap" rel="stylesheet">
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/navbar.css" rel="stylesheet" />
+        <link href="css/footer.css" rel="stylesheet" />
+        <style>
+            body {
+                background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("assets/img/bg-masthead.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+                color: white;
+                min-height: 100vh;
+                padding-top: 76px;
+            }
+
+            .location-content {
+                padding: 50px 0;
+            }
+
+            .map-container {
+                width: 100%;
+                height: 450px;
+                margin: 20px auto;
+                display: flex;
+                gap: 20px;
+            }
+
+            #map {
+                width: 60%;
+                height: 100%;
+                border-radius: 10px;
+            }
+
+            .contact-info {
+                width: 40%;
+                padding: 30px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+            }
+
+            .contact-info p {
+                margin: 12px 0;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                line-height: 1.4;
+            }
+
+            .contact-info i {
+                font-size: 1.5rem;
+                color: #f4623a;
+            }
+
+            .direction-info {
+                width: 100%;
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+            }
+
+            .direction-item {
+                flex: 1;
+                padding: 20px;
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(10px);
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            .direction-item i {
+                font-size: 2rem;
+                color: #f4623a;
+                margin-bottom: 10px;
+            }
+
+            .direction-item h4 {
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .direction-item p {
+                color: rgba(255, 255, 255, 0.8);
+                margin: 0;
+            }
+
+            @media (max-width: 768px) {
+                .map-container {
+                    flex-direction: column;
+                    height: auto;
+                }
+
+                #map {
+                    width: 100%;
+                    height: 300px;
+                }
+
+                .contact-info {
+                    width: 100%;
+                }
+
+                .direction-info {
+                    flex-direction: column;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 네비게이션 바 포함 -->
+        <div id="navbar-placeholder"></div>
+
+        <!-- Location Content -->
+        <div class="location-content">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h2 class="text-white mt-0">찾아오시는 길</h2>
+                        <hr class="divider" />
+                        <div class="map-container">
+                            <div id="map"></div>
+                            <div class="contact-info">
+                                <p><i class="bi bi-geo-alt-fill"></i>준장식프라자</p>
+                                <p><i class="bi bi-geo-alt-fill"></i>강원특별자치도 춘천시 벌말길 78</p>
+                                <p><i class="bi bi-telephone-fill"></i>033-262-5775</p>
+                                <p><i class="bi bi-envelope-fill"></i>이메일@naver.com</p>
+                                <p><i class="bi bi-car-front-fill"></i>자가용 : 춘천시내에서 약 10분 소요</p>
+                                <p><i class="bi bi-bus-front"></i>대중교통 : 시내버스 10번, 20번</p>
+                                <p><i class="bi bi-p-circle-fill"></i>주차 : 건물 앞 무료 주차 가능</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 포함 -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/common.js"></script>
+        <!-- 카카오맵 SDK -->
+        <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7e7f5e1bf84846961b06a89cab79dcbb&autoload=false"></script>
+        <script>
+            // 네비게이션 바 스크롤 효과
+            window.addEventListener('scroll', function() {
+                const mainNav = document.getElementById('mainNav');
+                if (window.scrollY > 50) {
+                    mainNav.classList.add('navbar-scrolled');
+                } else {
+                    mainNav.classList.remove('navbar-scrolled');
+                }
+            });
+
+            // 네비게이션 바 로드
+            fetch('components/navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-placeholder').innerHTML = data;
+                });
+
+            // 푸터 로드
+            fetch('components/footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer-placeholder').innerHTML = data;
+                });
+
+            // 카카오맵 초기화
+            kakao.maps.load(() => {
+                const container = document.getElementById('map');
+                const options = {
+                    center: new kakao.maps.LatLng(37.861120810, 127.743129944),
+                    level: 3
+                };
+
+                const map = new kakao.maps.Map(container, options);
+
+                // 마커 생성
+                const marker = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(37.861120810, 127.743129944),
+                    map: map
+                });
+
+                // 커스텀 오버레이 생성
+                const content = `
+                    <div style="
+                        display: flex;
+                        align-items: center;
+                        background: white;
+                        border-radius: 12px;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                        padding: 10px 14px;
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 13px;
+                        color: #333;
+                        white-space: nowrap;
+                    ">
+                        <img src="assets/img/준장식로고.svg" alt="logo" 
+                            style="width: 32px; height: 32px; border-radius: 50%; margin-right: 10px; object-fit: cover; box-shadow: 0 0 3px rgba(0,0,0,0.1);" />
+                        <div style="display: flex; flex-direction: column;">
+                            <span style="font-weight: 700;">준장식프라자</span>
+                            <span style="font-size: 11px; color: #777;">도배, 바닥재 전문</span>
+                        </div>
+                    </div>
+                `;
+
+                const customOverlay = new kakao.maps.CustomOverlay({
+                    content: content,
+                    position: new kakao.maps.LatLng(37.861120810, 127.743129944),
+                    yAnchor: 1.9
+                });
+
+                customOverlay.setMap(map);
+            });
+        </script>
+    </body>
+</html> 
