@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://준장식프라자.com/sitemap.xml
