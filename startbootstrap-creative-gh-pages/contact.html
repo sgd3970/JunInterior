@@ -206,7 +206,8 @@
                                     <div class="invalid-feedback" data-sb-feedback="email:email">유효한 이메일 주소가 아닙니다.</div>
                                 </div>
                                 <div class="form-group mb-md-0">
-                                    <input class="form-control" id="phone" type="tel" placeholder="연락처 *" data-sb-validations="required" />
+                                    <input class="form-control" id="phone" type="tel" placeholder="연락처 *" data-sb-validations="required" 
+                                           onclick="if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){window.location.href='tel:033-262-5775';}" />
                                     <div class="invalid-feedback" data-sb-feedback="phone:required">연락처를 입력해 주세요.</div>
                                 </div>
                             </div>
