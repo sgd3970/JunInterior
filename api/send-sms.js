@@ -1,3 +1,5 @@
+// api/send-sms.js
+
 const coolsms = require('coolsms-node-sdk').default;
 
 const messageService = new coolsms(
@@ -22,19 +24,12 @@ export default async function handler(req, res) {
       to: process.env.SMS_RECEIVER_PHONE,
       from: process.env.SMS_SENDER_PHONE,
       text: `
-[문의 접수]
-성함: ${name}
-연락처: ${phone}
-${email ? `이메일: ${email}\n` : ''}
-문의내용: ${message}`
+            [문의 접수]
+            성함: ${name}
+            연락처: ${phone}
+            ${email ? `이메일: ${email}\n` : ''}
+            문의내용: ${message}`
     });
-
-    if (result.data.success) {
-      alert('문의내용을 발송했습니다.');
-      document.getElementById('contactForm').reset();
-    } else {
-      alert('문의내용을 발송하지 못하였습니다.');
-    }
 
     return res.status(200).json({ success: true, result });
   } catch (err) {
