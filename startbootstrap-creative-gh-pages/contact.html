@@ -227,8 +227,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" 
-                                    onclick="return sendSMS()">문의하기</button>
+                            <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" onclick="return sendSMS()">문의하기</button>
                         </div>
                     </form>
                 </div>
@@ -268,11 +267,6 @@
                 });
 
             async function sendSMS() {
-                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-                    alert('모바일 환경에서만 사용 가능합니다.');
-                    return false;
-                }
-
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
