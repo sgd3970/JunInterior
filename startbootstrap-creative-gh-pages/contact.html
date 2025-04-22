@@ -228,7 +228,7 @@
                         </div>
                         <div class="text-center">
                             <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit" 
-                                    onclick="if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){window.location.href='tel:033-262-5775'; return false;}">문의하기</button>
+                                    onclick="return sendSMS()">문의하기</button>
                         </div>
                     </form>
                 </div>
@@ -241,6 +241,7 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/common.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script>
             // 네비게이션 바 스크롤 효과
             window.addEventListener('scroll', function() {
@@ -265,6 +266,43 @@
                 .then(data => {
                     document.getElementById('footer-placeholder').innerHTML = data;
                 });
+
+            async function sendSMS() {
+                if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                    alert('모바일 환경에서만 사용 가능합니다.');
+                    return false;
+                }
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
+
+                if (!name || !email || !phone || !message) {
+                    alert('모든 필드를 입력해주세요.');
+                    return false;
+                }
+
+                try {
+                    const response = await axios.post('/api/send-sms', {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        message: message
+                    });
+
+                    if (response.data.success) {
+                        alert('문의가 성공적으로 전송되었습니다.');
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        alert('문의 전송에 실패했습니다. 다시 시도해주세요.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('문의 전송 중 오류가 발생했습니다. 다시 시도해주세요.');
+                }
+                return false;
+            }
         </script>
     </body>
 </html> 
