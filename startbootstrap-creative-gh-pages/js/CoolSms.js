@@ -1,21 +1,21 @@
 // CoolSMS API를 사용하여 문자 전송
 async function sendSMS() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const message = document.getElementById('message').value;
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim(); // 선택값
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-    if (!name || !email || !phone || !message) {
-        alert('모든 필드를 입력해주세요.');
+    if (!name || !phone || !message) {
+        alert('이름, 연락처, 문의내용은 필수입니다.');
         return false;
     }
 
     try {
         const response = await axios.post('/api/send-sms', {
-            name: name,
-            email: email,
-            phone: phone,
-            message: message
+            name,
+            email, // optional
+            phone,
+            message
         });
 
         if (response.data.success) {
