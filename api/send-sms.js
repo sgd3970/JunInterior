@@ -29,6 +29,13 @@ ${email ? `이메일: ${email}\n` : ''}
 문의내용: ${message}`
     });
 
+    if (result.data.success) {
+      alert('문의내용을 발송했습니다.');
+      document.getElementById('contactForm').reset();
+    } else {
+      alert('문의내용을 발송하지 못하였습니다.');
+    }
+
     return res.status(200).json({ success: true, result });
   } catch (err) {
     console.error('문자 전송 오류:', err);
