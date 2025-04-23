@@ -44,8 +44,12 @@
     color: #fff;
 }
 
+#mainNav.navbar-scrolled .navbar-nav {
+    background-color: #fff;
+}
+
 #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
-    color: #fff;
+    color: #212529;
 }
 
 #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
@@ -88,5 +92,9 @@
 
     #mainNav.navbar-scrolled .navbar-nav {
         background-color: #fff;
+    }
+
+    #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
+        color: #212529;
     }
 } 
