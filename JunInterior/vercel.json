@@ -1,6 +1,15 @@
 {
-    "rewrites": [
-      { "source": "/api/(.*)", "destination": "/api/$1.js" }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1.js" },
+    { "source": "/소개", "destination": "/about.html" },
+    { "source": "/문의하기", "destination": "/contact.html" },
+    { "source": "/오시는길", "destination": "/location.html" },
+    { "source": "/시공사례", "destination": "/portfolio.html" },
+    { "source": "/시공서비스", "destination": "/services.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/사이트맵", "destination": "/sitemap.xml" }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true }
+  ]
+}
