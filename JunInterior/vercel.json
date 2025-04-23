@@ -1,6 +1,18 @@
 {
-    "rewrites": [
-      { "source": "/api/(.*)", "destination": "/api/$1.js" }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1.js" }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.준장식프라자.com"
+        }
+      ],
+      "destination": "https://준장식프라자.com/",
+      "permanent": true
+    }
+  ]
+}
