@@ -8,6 +8,12 @@
   </url>
 
   <url>
+    <loc>https://준장식프라자.com/index.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>https://준장식프라자.com/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
