@@ -227,7 +227,32 @@
     </head>
     <body>
         <!-- 네비게이션 바 포함 -->
-        <div id="navbar-placeholder"></div>
+        <!-- <div id="navbar-placeholder"></div> -->
+         <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="index.html" style="padding: 6px 10px; border-radius: 8px; display: flex; align-items: center;">
+                    <img src="assets/img/JunInteriorlogo.png" alt="Jun Interior Logo" style="height: 40px; width: 40px; margin-right: 10px; border-radius: 50%; object-fit: cover; vertical-align: middle;">
+                    <div style="display: inline-block; vertical-align: middle;">
+                        <span style="font-family: 'Montserrat', sans-serif; font-weight: 700; color: #ffffff; font-size: 28px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);">Jun</span>
+                        <span style="font-family: 'Montserrat', sans-serif; font-weight: 300; color: #d4d4d4; font-size: 15px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);">Interior</span>
+                    </div>
+                </a>
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="index.html">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">소개</a></li>
+                        <li class="nav-item"><a class="nav-link" href="location.html">찾아오시는 길</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">서비스</a></li>
+                        <li class="nav-item"><a class="nav-link" href="portfolio.html">시공사례</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">문의</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
 
         <main>
             <!-- About Content -->
@@ -278,11 +303,11 @@
             });
 
             // 네비게이션 바 로드
-            fetch('components/navbar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('navbar-placeholder').innerHTML = data;
-                });
+            // fetch('components/navbar.html')
+            //     .then(response => response.text())
+            //     .then(data => {
+            //         document.getElementById('navbar-placeholder').innerHTML = data;
+            //     });
 
             // 푸터 로드
             fetch('components/footer.html')
