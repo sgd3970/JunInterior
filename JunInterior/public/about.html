@@ -41,8 +41,6 @@
             .about-content {
                 min-height: calc(100vh - 76px);
                 position: relative;
-                display: flex;
-                align-items: center;
             }
 
             .about-slider {
@@ -82,6 +80,7 @@
                     width: 100%;
                     box-sizing: border-box;
                     overflow-x: hidden;
+                    min-height: auto;
                 }
                 
                 .container {
@@ -313,7 +312,16 @@
             fetch('components/footer.html')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('footer-placeholder').innerHTML = data;
+                    const footerPlaceholder = document.getElementById('footer-placeholder');
+                    if (footerPlaceholder) {
+                        const footerElement = document.createElement('div');
+                        footerElement.innerHTML = data;
+                        // Assuming the footer.html contains a single root element, e.g., <footer class="footer">
+                        const actualFooter = footerElement.firstElementChild;
+                        if (actualFooter) {
+                            footerPlaceholder.parentNode.replaceChild(actualFooter, footerPlaceholder);
+                        }
+                    }
                 });
 
         </script>
